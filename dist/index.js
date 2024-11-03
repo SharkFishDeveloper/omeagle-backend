@@ -63,6 +63,9 @@ app.use("/app/mentor", mentorRouter_1.mentorRouter);
 app.get("/data", (req, res) => {
     return res.json({ "All data of map": userManager.returnMapData() });
 });
+app.get("/", (req, res) => {
+    return res.json({ message: "Route is fine" });
+});
 server.listen(3000, () => {
     console.log("Server running 3000");
 });
