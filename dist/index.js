@@ -66,6 +66,17 @@ app.get("/data", (req, res) => {
 app.get("/", (req, res) => {
     return res.json({ message: "Route is fine" });
 });
+app.get("/live-details", (req, res) => {
+    try {
+        var { universityStudentsId: a, normalUsersId: b } = userManager.returnMapData();
+        const countA = a.length;
+        const countB = b.length;
+        return res.json({ message: countA + countB, status: 200 });
+    }
+    catch (error) {
+        return res.json({ message: "Oops,no count", status: 400 });
+    }
+});
 server.listen(3000, () => {
     console.log("Server running 3000");
 });
